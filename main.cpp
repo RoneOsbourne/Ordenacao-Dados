@@ -1,57 +1,65 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <conio.h>
+#include <iostream>
 #include <time.h>
-//#include <iostream>
-void selecao(int vet[], int n){
 
-    int menor, aux;
-
-    for(int i=0; i < n-1; i++){
-        menor = i;
-        for(int j = i+1; j < n; j++){
-            if(vet[menor] > vet[j])
-                menor=j;
+void bubble(int vetor[],int n){
+    int k = n;
+    int aux;
+    for(int i=0; i<n; i++){
+        for(int j=0;j<k;j++){
+            if(vetor[j] > vetor[j+1]){
+                aux=vetor[j];
+                vetor[j]=vetor[j+1];
+                vetor[j+1]=aux;
+            }
         }
-        if(i!=menor){
-            aux=vet[i];
-            vet[i]=vet[menor];
-            vet[menor]=aux;
-        }
+        k--;
     }
+ }
 
-}
+int vetor1[10];
 int main()
-{   printf("================= ORDENACAO DE DADOS METODO SELECTION SORT ===================\n");
-    int n = 9;
+{
+    printf("\n================= ORDENACAO DE DADOS METODO BUBBLE SORT ===================\n\n");
 
-    printf("\nNumeros aleatorios nao ordenados\n");
-    printf("\n");
+     printf("\tNUMEROS PRE FIXADOS DESORDENADOS\n");
+
+    int vetor[10] = {3,5,8,1,9,2,4,7,0,6};
+    int n=10;
+
+      printf("\n\t");
+    for(int i =0; i<n; i++){
+         printf("%d ", vetor[i]);
+
+    }
+     printf("\n\n\tNUMEROS PRE FIXADOS ORDENADOS\n");
+    bubble(vetor,n);
+
+    printf("\n\n\t");
+    for(int i =0; i<n; i++){
+         printf("%d ", vetor[i]);
+
+    }
+     printf("\n\n");
+     printf("\n================ NUMEROS ALEATORIOS ========================\n");
+     printf("\n\n");
+
+     printf("\tNUMEROS ALEATORIOS DESORDENADOS");
+     printf("\n\n\t");
 
     srand(time(NULL));
-    for(int i = 0; i < 9; i++){
-              int vetor1[9];
-           vetor1[i] = rand() % 100;
+    for(int i = 0; i < n; i++)
+    {
+        vetor1[i] = { rand() % 50};
+        printf("%d ", vetor1[i]);
 
-           printf("%d ", vetor1[i]);
+   }
 
-    }
-      printf("\n");
-    printf("\nNumeros pre fixados ordenados");
 
-    int vetor[9] = {3,6,5,1,2,8,7,9,4};
+     printf("\n\n");
 
-    selecao(vetor, n);
-
-    printf("\n\n");
-//==================== IMPRIME O VETOR ORDENADO ====================
-    for(int i=0; i < n; i++){
-            printf("%d  ", vetor[i]);
-    }
-    
-    printf("\n\n\n");
-    
-    clock_t tempo;
+     clock_t tempo;
 	tempo = clock();
 
     // código de teste
@@ -59,9 +67,8 @@ int main()
 	//fim
 	printf("Tempo:%f",(clock() - tempo) / (double)CLOCKS_PER_SEC);
 
-	printf("\n\n\n");
+	  printf("\n\n\n");
 
     system("pause");
-
     return 0;
 }
