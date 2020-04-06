@@ -1,74 +1,71 @@
-#include <stdio.h>
+/*#include <stdio.h>
 #include <stdlib.h>
-#include <iostream>
 #include <time.h>
+#include <conio.h>*/
+#include<bits/stdc++.h> // com o uso desta biblioteca que é uma coletanea se torna dispensavel o uso das bibliotecas acima!
 
-void bubble(int vetor[],int n){
-    int k = n;
-    int aux;
-    for(int i=0; i<n; i++){
-        for(int j=0;j<k;j++){
-            if(vetor[j] > vetor[j+1]){
-                aux=vetor[j];
-                vetor[j]=vetor[j+1];
-                vetor[j+1]=aux;
-            }
-        }
-        k--;
-    }
- }
+#include "exercicio1.cpp"
+#include "exercicio2.cpp"
+#include "exercicio3.cpp"
+#include "exercicio4.cpp"
+#include "exercicio5.cpp"
+#include "exercicio6.cpp"
+#include "exercicio7.cpp"
 
-int vetor1[10];
-int main()
-{
-    printf("\n================= ORDENACAO DE DADOS METODO BUBBLE SORT ===================\n\n");
+void mostraMenu() {
+    printf("Ordenação\n\nInforme o exercício:\n\n");
+    printf("1 - Exercício 1 - Array Randômico\n");
+    printf("2 - Exercício 2 - Bubble, Selection, Insertion, Quick, TimSort\n");
+    printf("3 - Exercício 3 - Estudar e Entender os Algoritmos\n");
+    printf("4 - Exercício 4 - Controle Hora Inicial, Final e Duração dos Algoritmos\n");
+    printf("5 - Exercício 5 - Atenção ao array Randômico em todos Algoritmos\n");
+    printf("6 - Exercício 6 - Licença MIT no Github\n");
+    printf("7 - Exercício 7 - Resultados em Excel\n\n");
+    printf("Opção:  ");
+}
 
-     printf("\tNUMEROS PRE FIXADOS DESORDENADOS\n");
+int main() {
+    //Configura a acentuação no C
+    setlocale(LC_ALL, "Portuguese");
 
-    int vetor[10] = {3,5,8,1,9,2,4,7,0,6};
-    int n=10;
+    mostraMenu();
 
-      printf("\n\t");
-    for(int i =0; i<n; i++){
-         printf("%d ", vetor[i]);
+    int opcao = 0;
+    scanf("%d", &opcao);
+    system("@cls||clear");
 
-    }
-     printf("\n\n\tNUMEROS PRE FIXADOS ORDENADOS\n");
-    bubble(vetor,n);
-
-    printf("\n\n\t");
-    for(int i =0; i<n; i++){
-         printf("%d ", vetor[i]);
-
-    }
-     printf("\n\n");
-     printf("\n================ NUMEROS ALEATORIOS ========================\n");
-     printf("\n\n");
-
-     printf("\tNUMEROS ALEATORIOS DESORDENADOS");
-     printf("\n\n\t");
-
-    srand(time(NULL));
-    for(int i = 0; i < n; i++)
+    switch (opcao)
     {
-        vetor1[i] = { rand() % 50};
-        printf("%d ", vetor1[i]);
+        case 1:
+            exercicio1();
+            break;
+        
+        case 2:
+            exercicio2();
+            break;
+            
+        case 3:
+            exercicio3();
+            break;
+        
+        case 4:
+            exercicio4();
+            break;
 
-   }
+        case 5:
+            exercicio5();
+            break;
 
+        case 6:
+            exercicio6();
+            break;
 
-     printf("\n\n");
-
-     clock_t tempo;
-	tempo = clock();
-
-    // código de teste
-	for(int i = 0; i < 99999999; ++i){}
-	//fim
-	printf("Tempo:%f",(clock() - tempo) / (double)CLOCKS_PER_SEC);
-
-	  printf("\n\n\n");
-
-    system("pause");
-    return 0;
+        case 7:
+            exercicio7();
+            break;
+            
+        default:
+        printf("Opção inválida");
+        break;
+    }
 }
