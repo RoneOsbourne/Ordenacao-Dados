@@ -1,13 +1,17 @@
-#include<bits/stdc++.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <conio.h>
+#include<bits/stdc++.h> //coletanea se torna dispensavel o uso das bibliotecas acima! obs: não funciona em alguns compiladores
 
-void exercicio2(){
-    printf("Exercício 2 - ");
-    printf("Programa Bubble, Selection, Insertion, Quick, TimSort\n\n");
-    
+ int vetor[10];
+    int n = 10;
+
 // Bubble
 
-void bubble(int vetor[],int n)
+	void bubble(int vetor[],int n)
 {
+	
     int k = n;
     int aux;
     for(int i=0; i<n; i++)
@@ -229,8 +233,8 @@ void contadorTempo()
 //INICIO DO PROGRAMA
 int main()
 {
-    int vetor[10];
-    int n = 10;
+    int vetor[100];
+    int n = 100;
     printf("\n================= ORDENACAO DE DADOS ===================\n\n");
 
     printf("\nNUMEROS ALEATORIOS DESORDENADOS\n");
@@ -239,7 +243,7 @@ int main()
     srand(time(NULL));
     for(int i = 0; i < n; i++)
     {
-        vetor[i] = { rand() % 50};
+        vetor[i] = { rand() % 100};
         printf("%d ", vetor[i]);
 
     }
@@ -293,9 +297,8 @@ int main()
     printf(" ",(clock() - tempo) / (double)CLOCKS_PER_SEC);
     printf("\n");
 
-    system("pause");
     return 0;
-}
+   
 }
 
 
